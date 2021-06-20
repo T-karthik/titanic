@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+        margin: 0;
+        background-color: rgb(0, 195, 255);
+        }
+        .div2, .results{
+        display: inline-block;
+        width: auto;
+        height: 429px;
+        text-align: center;
+        }
+        .form-input{
+        background-color: #E9E9E9;
+        width: 370px;
+        height: 30px;
+        border-radius: 3px;
+        border: 0;
+        text-align: center;
+        -webkit-box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+        -moz-box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+        box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+        margin-bottom: 15px;
+        }
+        .prediction-area{
+        position: relative;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 20px 40px;
+        }
+        .container{
+	color: #000000;
+    padding: 20px;
+	display: block;
+	text-align: center;
+        }
+
+        .container-heading{
+            margin: 0;
+        }
+
+        .heading_first{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 100;
+        }
+
+        .heading_second{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 800;
+            font-style: italic;
+        }
+        .myButton {
+	background-color:#0c0c0c;
+	border-radius: 5px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:7px 30px;
+	margin-top: 10px;
+	text-decoration:none;
+	transition: 0.5s ease-out;
+        }
+
+        .myButton:hover{
+            background-color: #E9E9E9;
+            color: #000000;
+            box-shadow: inset 7px 3px 16px -10px rgba(0,0,0,0.75);
+        }
+
+        .myButton:active {
+            position:relative;
+            top:1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class='container-heading'><span class='heading_first'>Titanic Survival </span><span class="heading_second">prediction</span></h2>
+        <div class='description'>
+            
+        </div>
+    </div>
+    <div class="prediction-area">
+        <div class = 'div2'>
+            <form  action="{{ url_for('predict') }}" method="POST">
+                Name<input class="form-input" type="text" id="num1" name="inp1"><br>
+                Gender<input class="form-input" type="text"  id="num2" name="inp2"><br>
+                Age<input class="form-input" type="text"  id="num3" name="inp3"><br>
+                ticket_class<input class="form-input" type="text"  id="num4" name="inp4"><br>
+                family_size<input class="form-input" type="text"  id="num5" name="inp5"><br>
+                embark<input class="form-input" type="text"  id="num6" name="inp6"><br>
+                ticket_price<input class="form-input" type="text"  id="num7" name="inp7"><br>
+        
+                <input class="myButton" type="submit" id="sub" value="Predict">
+               
+            </form>
+            <div class="results">
+				<p class='result-p'>{{prediction_text}}</p>
+			</div>
+        </div>
+
+    </div>
+    
+    </body>
+    
+    
+</html>
